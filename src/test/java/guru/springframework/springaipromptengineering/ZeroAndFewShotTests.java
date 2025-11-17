@@ -78,6 +78,7 @@ public class ZeroAndFewShotTests extends BaseTestClass {
             ChatResponse response = chatModel.call(prompt);
 
             System.out.println("#################################\n");
+            System.out.println(response.getMetadata().getRateLimit());
             System.out.println(response.getResult().getOutput().getText());
         }
     }
