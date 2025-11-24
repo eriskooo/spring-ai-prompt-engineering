@@ -1,0 +1,57 @@
+Erich Lorman
+Senior Java / Quarkus Developer | Microservice Architect
+Czech / Slovak Republic  •  erich.lorman@gmail.com • +420 735 209 597 / +421 908 661 092
+PROFILE
+Senior Java / Quarkus developer with 15+ years of experience in enterprise-grade systems design and implementation. Focused on microservice architecture, clean code principles, automated testing, and DevOps practices. Combines strong technical background with mentoring and architectural leadership.
+
+CORE SKILLS
+•	Backend Development: Java EE, MicroProfile, Quarkus 3.x, SpringBoot, Kumuluzee
+•	Testing: JUnit5, Mockito, RestAssured, WireMock, Arquillian, RobotFramework
+•	Build & CI/CD: Maven, GitLab CI, Jenkins, SonarQube, Nexus
+•	Database & Messaging: PostgreSQL, Kafka, ActiveMQ
+•	Containerization: Docker, Kubernetes
+•	DevOps: Ubuntu / CentOS, Git, automated deployment
+•	Architecture: Microservices, DDD, event driven, clean code standards
+•	Other: Swagger / OpenAPI, JSON logging, performance tuning, Kibana, Jaeger
+
+PROFESSIONAL EXPERIENCE
+Scheidt & Bachmann FCS, SK | Contractor, Key J2EE Developer (09/2019 – 09/2025)
+•	Tech lead for accounting team (scrum)
+•	Designed and implemented 12+ microservices using Quarkus, Kumuluzee, Spring
+•	Responsible for architecture, CI/CD pipelines, and code quality
+•	Project with 100+ microservices, emphasis on clean code and test coverage
+•	Architecture aligned with Jakarta EE and MicroProfile standards
+Technologies: Quarkus, Kumuluzee, Spring, JUnit, RestAssured, Wiremock, Maven, Docker, GitLab CI, SonarQube, Whitesource
+Scheidt & Bachmann Tank, SK | Employee, J2EE Developer / Architect (08/2014 – 03/2019)
+•	Designed cloud solution for fueling point services and POS
+•	Multi-tier microservice system based on JEE7 and DDD
+•	Architecture aligned with Jakarta EE and MicroProfile standards
+Technologies: JEE7 (CDI, JPA, EJB3, JWT, Wildfly), ActiveMQ, Maven, Jenkins, SonarQube
+OMTIS, SK | Founder / Architect / Developer (05/2013 – 05/2014)
+•	Designed and implemented automotive part search engine (Selenium + SOAP + JSF + Swing)
+•	Full‑stack development – client, server, and infrastructure
+
+Older Projects (2006–2013): VÚB Banka, Direct Pojišťovna, UPC CZ, ČSOB, T‑Mobile, OnSemiconductors
+•	Business logic and front‑end development for financial and telecom systems
+•	Migration projects, BPM modeling, architecture modernization
+•	Awarded WebTop100 (Direct Pojišťovna, 2011)
+
+EDUCATION
+•	FF TRUNI Trnava, SK — Philosophy (2019 – 2020)
+•	FEI STU Bratislava, SK — Computer Science (1998 – 2000)
+
+LANGUAGES
+•	English — C1
+•	German — A2
+
+TRAININGS & CERTIFICATES
+•	Spring on k8s, Spring Boot 3, Spring DevOps on AWS, Spring AI — Udemy (2025)
+•	Docker, Spring 5 & Spring Cloud, JEE 8 — Udemy (2019)
+•	JEE 7 — Adam Bien (Munich, 2015), itExperts (Zilina, 2016)
+•	Design Patterns — René Stein (CZ)
+•	Cambridge First Certificate
+
+TOOLS & NOTES
+•	IntelliJ IDEA, Maven, Git (GitLab / GitHub), SonarQube
+•	Ubuntu fan since Dapper Drake (2006)
+•	Combines technical precision with pragmatic and maintainable code approach.
