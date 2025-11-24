@@ -31,7 +31,7 @@ public class CvPromptService {
 
     // Convenience method with fixed Czech instruction
     public String findThreeCzechRemoteContractorPositionsFromFirstCv() {
-        String instruction = "Na základě přiloženého životopisu najdi přesně 3 vhodné pracovní pozice v České republice na IČO (OSVČ), plně remote. U každé pozice uveď název (role), 1–2 věty proč je vhodná s odkazem na zkušenosti z CV a klíčové technologie/kompetence. Dále připoj přesně 1 funkční odkaz (URL) na konkrétní inzerát, který přesně odpovídá dané pozici; nepoužívej vyhledávací ani rozcestníkové odkazy a neuváděj více než jeden odkaz. Výstup naformátuj v Markdownu jako očíslovaný seznam 1..3, kde u každé položky bude sekce Odkaz: s jediným URL.";
+        String instruction = "Na základě přiloženého životopisu najdi přesně 3 konkrétní pracovní pozice v České republice na IČO (OSVČ), plně remote. U každé pozice uveď název role dle inzerátu, jméno/značku zaměstnavatele nebo agentury, 1–2 věty proč je vhodná s odkazem na zkušenosti z CV, a klíčové technologie/kompetence. Přidej přesně 1 ověřený funkční odkaz (URL) přímo na detail daného inzerátu (ne seznam, ne vyhledávání, ne homepage). Pokud nelze doložit konkrétní inzerát, uveď NENALEZENO a krátké vysvětlení. Výstup naformátuj v Markdownu jako očíslovaný seznam 1..3, se sekcí Odkaz: s jediným URL a mini‑checklistem (Zaměstnavatel, Role, Remote: ano, OSVČ: ano).";
         return callWithFirstCv(instruction);
     }
 
@@ -61,17 +61,32 @@ public class CvPromptService {
     }
 
     private String callModel(String instruction, String cvText) {
+//        String template = String.join(System.lineSeparator(),
+//                "[SYSTEM]",
+//                "Jsi kariérní poradce a sourcér pracovních pozic. Postupuj přesně podle instrukce.",
+//                "Pracuj pouze s obsahem životopisu mezi značkami <CV> a </CV>.",
+//                "Neptej se na další údaje; pokud něco chybí, rozumně odhadni z kontextu.",
+//                "Najdi a doporučuj pouze konkrétní pracovní inzeráty relevantní k profilu. Každý návrh musí obsahovat: zaměstnavatele/agenturu, název role dle inzerátu a přesně 1 přímý odkaz (URL) na DETAIL inzerátu.",
+//                "Zakázané: víc odkazů, vyhledávací dotazy, seznamy nabídek, homepage a obecné rozcestníky. Preferuj české portály (.cz) a stránky kariér zaměstnavatelů.",
+//                "Pokud nemůžeš doložit konkrétní ověřitelný inzerát, napiš NENALEZENO a stručně vysvětli proč.",
+//                "Výstup formátuj v Markdownu a zachovej přehlednost (název pozice, zaměstnavatel, důvod, technologie, Odkaz + mini‑checklist).",
+//                "Odpověz česky.",
+//                "",
+//                "[INSTRUKCE]",
+//                "{instruction}",
+//                "",
+//                "[ŽIVOTOPIS]",
+//                "<CV>",
+//                "{cvText}",
+//                "</CV>");
+
+
         String template = String.join(System.lineSeparator(),
-                "[SYSTEM]",
-                "Jsi kariérní poradce a sourcér pracovních pozic. Postupuj přesně podle instrukce.",
-                "Pracuj pouze s obsahem životopisu mezi značkami <CV> a </CV>.",
-                "Neptej se na další údaje; pokud něco chybí, rozumně odhadni z kontextu.",
-                "U každé doporučené pozice uveď přesně 1 konkrétní odkaz (URL) na daný inzerát. Nepovoluj víc odkazů ani vyhledávací/obecné rozcestníky; odkaz musí vést přímo na popisované pracovní místo.",
-                "Výstup formátuj v Markdownu a zachovej přehlednost (název pozice, důvod, technologie, Odkaz).",
+
+                "Jsi programator hledajici praci.",
+                "Na základě přiloženého životopisu hledej přesně 3 inzeraty v České republice na IČO (OSVČ), plně remote. uved url inzerátu .",
+                "Obsah životopisu se nachazi mezi znackami<CV> a </CV>.",
                 "Odpověz česky.",
-                "",
-                "[INSTRUKCE]",
-                "{instruction}",
                 "",
                 "[ŽIVOTOPIS]",
                 "<CV>",
@@ -79,8 +94,8 @@ public class CvPromptService {
                 "</CV>");
 
         PromptTemplate promptTemplate = new PromptTemplate(template);
-        promptTemplate.add("instruction", defaultIfBlank(instruction, "Stručně shrň následující životopis v 5 bodech."));
-        promptTemplate.add("cvText", truncate(cvText, 12000));
+        promptTemplate.add("instruction", instruction);
+        promptTemplate.add("cvText", cvText);
         Prompt prompt = promptTemplate.create();
         return chatModel.call(prompt).getResult().getOutput().getText();
     }
